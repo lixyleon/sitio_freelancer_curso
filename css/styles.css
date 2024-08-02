@@ -1,0 +1,119 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+}
+/* globales */
+html {
+    font-size: 62.5%;
+    /* medida para facilitar el uso del rem, logrando que 1 rem = 10px*/
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+body {
+    font-size: 16px;
+    /* medida para facilitar el uso del rem, logrando que 1 rem = 10px*/
+    font-family: "Krub", sans-serif;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.boton{
+    background-color: var(--secundario);
+    color:var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    width: 90%;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+/* tipografia */
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+/* titulos */
+.titulo span {
+    font-size: 2rem;
+}
+/* navegacion principal*/
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+/* 480 para telefono - 768 tablet 1140 laptop*/
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.navegacion-principal a {
+    color: var(--blanco);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+/* Hero */
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+}
+.contenido-hero{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  /* background-color: rgba(0,0,0,0.6); forma anterior*/
+  background-color: rgb(0 0 0 / 60%); /* sintaxis nueva */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contenido-hero h2, .contenido-hero p{
+    color:var(--blanco);
+}
+.contenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+
+}
+ 
