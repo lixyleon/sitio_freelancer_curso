@@ -4,32 +4,56 @@
     --primario: #ffc107;
     --secundario: #0097a7;
     --gris: #757575;
-    --grisClaro:#DFE9F3;
+    --grisClaro: #DFE9F3;
 }
+
 /* globales */
 html {
     font-size: 62.5%;
     /* medida para facilitar el uso del rem, logrando que 1 rem = 10px*/
     box-sizing: border-box;
+    scroll-snap-type: y mandatory;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
-  }
+}
+.servicios, 
+.navegacion-principal, 
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+ /* Formato del scroll no es visible en todos los navegadores*/
+ ::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:var(--primario);
+    border-radius: 4rem;
+} 
+
+
 body {
     font-size: 16px;
     /* medida para facilitar el uso del rem, logrando que 1 rem = 10px*/
     font-family: "Krub", sans-serif;
-    background-image: linear-gradient(to top,var(--grisClaro) 0%, var(--blanco) 100%); /* fondo degradado*/
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+    /* fondo degradado*/
 }
 
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
 }
-.boton{
+
+.boton {
     background-color: var(--secundario);
-    color:var(--blanco);
+    color: var(--blanco);
     padding: 1rem 3rem;
     margin-top: 3rem;
     font-size: 2rem;
@@ -39,37 +63,74 @@ body {
     border-radius: 0.5rem;
     width: 90%;
     text-align: center;
+    border: none;
 }
+
+.boton:hover {
+    cursor: pointer;
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
 @media (min-width: 768px) {
     .boton {
         width: auto;
+       
     }
 }
-.sombra{
-    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
-    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
-    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
     background-color: var(--blanco);
     padding: 2rem;
     border-radius: 1rem;
 }
+
+/* utilidades*/
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+.flex {
+    display: flex;
+}
+
 /* tipografia */
-h1{
+h1 {
     font-size: 3.8rem;
 }
-h2{
+
+h2 {
     font-size: 2.8rem;
 }
-h3{
+
+h3 {
     font-size: 1.8rem;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
     text-align: center;
 }
+
 /* titulos */
 .titulo span {
     font-size: 2rem;
 }
+
 /* navegacion principal*/
 .nav-bg {
     background-color: var(--secundario);
@@ -79,6 +140,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
 }
+
 /* 480 para telefono - 768 tablet 1140 laptop*/
 @media (min-width: 768px) {
     .navegacion-principal {
@@ -86,6 +148,7 @@ h1, h2, h3 {
         justify-content: space-between;
     }
 }
+
 .navegacion-principal a {
     color: var(--blanco);
     display: block;
@@ -95,12 +158,14 @@ h1, h2, h3 {
     font-weight: bold;
     padding: 1rem;
 }
+
 .navegacion-principal a:hover {
     background-color: var(--primario);
     color: var(--oscuro);
 }
+
 /* Hero */
-.hero{
+.hero {
     background-image: url(../img/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -108,52 +173,62 @@ h1, h2, h3 {
     position: relative;
     margin-bottom: 2rem;
 }
-.contenido-hero{
+
+.contenido-hero {
     position: absolute;
     width: 100%;
     height: 100%;
-  /* background-color: rgba(0,0,0,0.6); forma anterior*/
-  background-color: rgb(0 0 0 / 60%); /* sintaxis nueva */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    /* background-color: rgba(0,0,0,0.6); forma anterior*/
+    background-color: rgb(0 0 0 / 60%);
+    /* sintaxis nueva */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.contenido-hero h2, .contenido-hero p{
-    color:var(--blanco);
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
 }
-.contenido-hero .ubicacion{
+
+.contenido-hero .ubicacion {
     display: flex;
     align-items: flex-end;
 
 }
 
 /* Servicios*/
-@media(min-width:768px){
-    .servicios{
+
+@media(min-width:768px) {
+    .servicios {
         display: grid;
-       /* grid-template-columns: 300px 300px;
+        /* grid-template-columns: 300px 300px;
         grid-row: 200px 800px;  
-        grid: 200px 800px / 300px 300px; Ejemplo de sisntaxis equivalentes*/ 
+        grid: 200px 800px / 300px 300px; Ejemplo de sisntaxis equivalentes*/
         grid-template-columns: 3fr 3fr 3fr;
         column-gap: 1rem;
     }
 }
 
-.servicio{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.servicio h3{
+
+.servicio h3 {
     color: var(--secundario);
     font-weight: normal;
     align-items: center;
 }
-.servicio p{
-    line-height: 2; /* interlineado del parrafo*/
+
+.servicio p {
+    line-height: 2;
+    /* interlineado del parrafo*/
 }
-.servicio .iconos{
+
+.servicio .iconos {
     height: 15rem;
     width: 15rem;
     background-color: var(--primario);
@@ -161,4 +236,68 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+/* contacto*/
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);
+    /* utiliza el valor mas pequeño*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campos:nth-child(3),
+    .campos:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+.campos {
+    margin-bottom: 1rem;
+}
+
+.campos label {
+    color: var(--blanco);
+    font-family: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.campos textarea {
+    height: 20rem;
+
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.footer{
+    text-align: center;
 }
